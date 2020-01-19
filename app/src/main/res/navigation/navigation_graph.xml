@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/experience">
+
+    <fragment
+        android:id="@+id/experience"
+        android:name="com.example.pawelresume.experience.ExperienceFragment"
+        android:label="@string/experience_tab"
+        tools:layout="@layout/fragment_experience"/>
+    <fragment
+        android:id="@+id/contact"
+        android:name="com.example.pawelresume.contact.ContactFragment"
+        android:label="@string/contact_tab"
+        tools:layout="@layout/fragment_contact"/>
+    <fragment
+        android:id="@+id/feedback"
+        android:name="com.example.pawelresume.feedback.FeedbackFragment"
+        android:label="@string/feedback_tab"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/skills"
+        android:name="com.example.pawelresume.skills.SkillsFragment"
+        android:label="@string/skills_tab"
+        tools:layout="@layout/fragment_skills"/>
+
+</navigation>

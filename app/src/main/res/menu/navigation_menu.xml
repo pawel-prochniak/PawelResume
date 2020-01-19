@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/experience"
+        android:icon="@drawable/work"
+        android:title="@string/experience_tab" />
+    <item
+        android:id="@+id/skills"
+        android:icon="@drawable/ic_brush_24px_white"
+        android:title="@string/skills_tab" />
+    <item
+        android:id="@+id/contact"
+        android:icon="@drawable/contact"
+        android:title="@string/contact_tab" />
+    <item
+        android:id="@+id/feedback"
+        android:icon="@drawable/feedback"
+        android:title="@string/feedback_tab" />
+</menu>
