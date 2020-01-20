@@ -11,7 +11,7 @@ class ExperienceRepository private constructor(private val experienceDao: Experi
 
         fun getInstance(experienceDao: ExperienceDao) =
             instance ?: synchronized(this) {
-                instance ?: ExperienceRepository(experienceDao)
+                instance ?: ExperienceRepository(experienceDao).also { instance = it }
             }
     }
 }
