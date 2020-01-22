@@ -15,6 +15,8 @@ buildscript {
         viewPagerVersion = '1.0.0'
         navigationVersion = '2.0.0'
         roomVersion = '2.1.0'
+        koinVersion = '2.0.1'
+        fragmentVersion = '1.2.0-rc05'
     }
     repositories {
         google()

@@ -1,12 +1,12 @@
 package com.example.pawelresume.database
 
 import androidx.room.TypeConverter
-import java.sql.Date
+import java.util.*
 
 class Converters {
     @TypeConverter
-    fun dateToDatestamp(date: Date): Long = date.time
+    fun dateToTimestamp(date: Date): Long = date.time
 
     @TypeConverter
-    fun datestampToDate(datestamp: Long): Date = Date(datestamp)
+    fun timestampToDate(timestamp: Long): Date = Date(timestamp)
 }

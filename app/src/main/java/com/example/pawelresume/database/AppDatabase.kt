@@ -4,13 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.pawelresume.experience.data.ExperienceDao
 import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.utils.DATABASE_NAME
 import java.sql.Date
 
-@Database(entities = arrayOf(ExperienceEntry::class), version = 1)
+@Database(entities = [ExperienceEntry::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun experienceDao(): ExperienceDao
 
@@ -43,7 +45,15 @@ abstract class AppDatabase : RoomDatabase() {
             ExperienceEntry(
                 "Android Team Leader",
                 "Ailleron",
-                Date(1518998400)))
+                Date(1546300800)
+            ),
+            ExperienceEntry(
+                "Android Developer",
+                "Ailleron",
+                Date(1518998400),
+                Date(1546300800)
+            )
+        )
 
     }
 }
