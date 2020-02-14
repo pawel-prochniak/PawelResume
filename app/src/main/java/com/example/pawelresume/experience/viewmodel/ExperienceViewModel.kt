@@ -1,12 +1,11 @@
 package com.example.pawelresume.experience.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.experience.data.ExperienceRepository
 
 class ExperienceViewModel internal constructor(
-    experienceRepository: ExperienceRepository
+    experienceRepository: ExperienceRepository,
+    experienceId: String
 ) : ViewModel() {
-    val experienceList: LiveData<List<ExperienceEntry>> = experienceRepository.getAllExperience()
+
 }

@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import com.example.pawelresume.databinding.FragmentExperienceBinding
 import com.example.pawelresume.experience.data.ExperienceEntry
-import com.example.pawelresume.experience.viewmodel.ExperienceViewModel
+import com.example.pawelresume.experience.viewmodel.ExperienceListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class ExperienceFragment : Fragment() {
 
-    private val viewModel: ExperienceViewModel by viewModel()
+    private val viewModel: ExperienceListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,14 +22,14 @@ class ExperienceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentExperienceBinding.inflate(inflater, container, false)
+        val adapter = ExperienceAdapter()
+        binding.experienceRecycler.adapter = adapter
 
-        viewModel.experienceList.observe(viewLifecycleOwner) { result: List<ExperienceEntry> ->
-            val sb = StringBuilder()
-             result.forEach {
-                 sb.append(it.toString()).append("\n\n")
-             }
-            binding.title.text = sb.toString()
+        viewModel.experienceList.observe(viewLifecycleOwner) { list: List<ExperienceEntry> ->
+            Timber.d("experienceList updated: $list")
+            adapter.submitList(list)
         }
+
 
         return binding.root
     }

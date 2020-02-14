@@ -51,6 +51,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     implementation "org.koin:koin-core:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$testRunnerVersion"

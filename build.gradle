@@ -17,6 +17,7 @@ buildscript {
         roomVersion = '2.1.0'
         koinVersion = '2.0.1'
         fragmentVersion = '1.2.0-rc05'
+        timberVersion = '4.7.1'
     }
     repositories {
         google()

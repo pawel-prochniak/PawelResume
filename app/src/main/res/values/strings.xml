@@ -4,4 +4,6 @@
     <string name="skills_tab">Skills</string>
     <string name="contact_tab">Contact</string>
     <string name="feedback_tab">Feedback</string>
+    <string name="from_prefix">From:</string>
+    <string name="to_prefix">To:</string>
 </resources>

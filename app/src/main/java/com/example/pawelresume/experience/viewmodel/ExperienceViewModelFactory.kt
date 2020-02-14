@@ -11,6 +11,6 @@ class ExperienceViewModelFactory(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ExperienceViewModel(experienceRepository) as T
+        return ExperienceListViewModel(experienceRepository) as T
     }
 }
