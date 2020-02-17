@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pawelresume.databinding.FragmentExperienceBinding
 import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.experience.viewmodel.ExperienceListViewModel
@@ -23,6 +24,7 @@ class ExperienceFragment : Fragment() {
     ): View? {
         val binding = FragmentExperienceBinding.inflate(inflater, container, false)
         val adapter = ExperienceAdapter()
+        binding.experienceRecycler.layoutManager = LinearLayoutManager(context)
         binding.experienceRecycler.adapter = adapter
 
         viewModel.experienceList.observe(viewLifecycleOwner) { list: List<ExperienceEntry> ->

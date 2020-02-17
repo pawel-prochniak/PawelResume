@@ -9,10 +9,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.pawelresume.experience.data.ExperienceDao
 import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.utils.DATABASE_NAME
+import timber.log.Timber
 import java.sql.Date
+import java.util.*
 
 @Database(entities = [ExperienceEntry::class], version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun experienceDao(): ExperienceDao
 
@@ -45,14 +46,14 @@ abstract class AppDatabase : RoomDatabase() {
             ExperienceEntry(
                 "Android Team Leader",
                 "Ailleron",
-                Date(1546300800)
-            ),
+                from = Calendar.getInstance().apply { set(2019, 1, 1) }.time
+            ).also { Timber.d("Adding calendar with from: ${it.from}") },
             ExperienceEntry(
                 "Android Developer",
                 "Ailleron",
-                Date(1518998400),
-                Date(1546300800)
-            )
+                from = Calendar.getInstance().apply { set(2018, 2, 1) }.time,
+                to = Calendar.getInstance().apply { set(2019, 1, 1) }.time
+            ).also { Timber.d("Adding calendar with from: ${it.from}, and to: ${it.to}") }
         )
 
     }

@@ -33,7 +33,7 @@ class ExperienceAdapter : ListAdapter<ExperienceEntry, ExperienceAdapter.ViewHol
     class ViewHolder(private val binding: ListItemExperienceBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        private val dateFormat = SimpleDateFormat("MMM yyyy", Locale.US)
+        private val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.US)
 
         fun bind(item: ExperienceEntry) {
             with (binding) {
