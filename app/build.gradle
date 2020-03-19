@@ -54,6 +54,10 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
 
     testImplementation "junit:junit:$jUnitVersion"
-    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "android.arch.core:core-testing:$testArchCoreTestingVersion"
+    androidTestImplementation "androidx.test.ext:junit:$testRunnerVersion"
+    androidTestImplementation "androidx.test.ext:truth:$testRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$testRulesVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 }

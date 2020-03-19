@@ -18,6 +18,7 @@
             tools:listitem="@layout/list_item_experience" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/experience_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fabCustomSize="40dp"
