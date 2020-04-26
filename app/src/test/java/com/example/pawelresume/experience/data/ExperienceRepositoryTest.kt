@@ -1,53 +1,24 @@
 package com.example.pawelresume.experience.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import com.example.pawelresume.getOrAwaitValue
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
-import org.junit.Assert.*
-import org.junit.Before
-import org.junit.Ignore
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import java.time.Instant
 import java.util.*
 
 class ExperienceRepositoryTest {
 
-    private lateinit var repo: ExperienceRepository
     private val expLiveData = MutableLiveData<List<ExperienceEntry>>()
-    private val dao: ExperienceDao = mockk {
-        every { getExperience() } returns expLiveData
-    }
-
+    private val dao: ExperienceDao = mockk()
+    private val repo = ExperienceRepository(dao)
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
-
-    @Before
-    fun setup() {
-        repo = ExperienceRepository.getInstance(dao)
-    }
-
-    @Test
-    fun `GIVEN no instance created WHEN repository is called THEN an instance is returned`() {
-        assertNotNull(repo)
-    }
-
-    @Test
-    fun `GIVEN repo exists WHEN repository is called THEN the same instance is returned`() {
-        val dao = mockk<ExperienceDao>()
-
-        val repo2 = ExperienceRepository.getInstance(dao)
-
-        assertEquals(repo, repo2)
-    }
 
     private val experienceList = listOf(
         ExperienceEntry(
@@ -65,33 +36,26 @@ class ExperienceRepositoryTest {
     
     @Test
     fun `GIVEN dao returns experience list WHEN all experience is requested THEN list is returned`() {
+        every { dao.getExperience() } returns expLiveData
+
         expLiveData.postValue(experienceList)
-        repo.getAllExperience().getOrAwaitValue().also { list ->
-            assertEquals(experienceList, list)
+
+        repo.getAllExperience().getOrAwaitValue().also {
+            assertEquals(experienceList, it)
         }
 
-        expLiveData.postValue(experienceList)
-    }
-
-    interface StringFetcher {
-        fun getAll(): LiveData<List<String>>
-    }
-
-    class StringRepository(private val fetcher: StringFetcher) {
-        fun getStrings() = fetcher.getAll()
     }
 
     @Test
-    @Ignore
-    fun `string livedata test`() {
-        val list = listOf("a", "b")
-        val fetcher = mockk<StringFetcher>()
-        val liveData = MutableLiveData<List<String>>()
-        every { fetcher.getAll() } returns liveData
+    fun `GIVEN dao accepts entry WHEN experience is added THEN its id is returned`() {
+        val id = 1L
+        every { dao.insertExperienceEntry(any()) } returns id
 
-        val repo = StringRepository(fetcher)
-        liveData.postValue(list)
-
-        assertEquals(list, repo.getStrings().value)
+        val entry = ExperienceEntry(
+            "Dev",
+            "ITM",
+            from = Calendar.getInstance().apply { set(2020, 2, 1)}.time)
+        val returned = repo.addExperience(entry)
+        assertEquals(id, returned)
     }
 }

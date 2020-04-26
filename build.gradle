@@ -13,6 +13,7 @@ buildscript {
         testRunnerVersion = '1.1.0'
         testRulesVersion = '1.1.1'
         testArchCoreTestingVersion = '1.1.1'
+        coroutinesVersion = '1.3.4'
         espressoVersion = '3.2.0'
         gradleVersion = '3.5.3'
         viewPagerVersion = '1.0.0'

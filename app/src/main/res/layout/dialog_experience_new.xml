@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/position_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/dialog_experience_position"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/position_input"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <EditText
+        android:id="@+id/position_input"
+        android:minWidth="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/position_label"
+        app:layout_constraintTop_toTopOf="@id/position_label"
+        app:layout_constraintBottom_toBottomOf="@id/position_label"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/company_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/dialog_experience_company"
+        app:layout_constraintTop_toBottomOf="@id/position_label"
+        app:layout_constraintEnd_toStartOf="@+id/company_input"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <EditText
+        android:id="@+id/company_input"
+        android:minWidth="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/company_label"
+        app:layout_constraintStart_toStartOf="@+id/position_input"
+        app:layout_constraintTop_toTopOf="@id/company_label" />
+
+    <TextView
+        android:id="@+id/from_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/dialog_experience_from"
+        app:layout_constraintTop_toBottomOf="@id/company_label"
+        app:layout_constraintEnd_toStartOf="@+id/from_input"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <EditText
+        android:id="@+id/from_input"
+        android:minWidth="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/position_input"
+        app:layout_constraintTop_toTopOf="@id/from_label"
+        app:layout_constraintBottom_toBottomOf="@id/from_label"
+        android:inputType="text"
+        tools:text="26 Apr 2019"/>
+
+    <TextView
+        android:id="@+id/to_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/dialog_experience_to"
+        app:layout_constraintTop_toBottomOf="@id/from_label"
+        app:layout_constraintEnd_toStartOf="@+id/to_input"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <EditText
+        android:id="@+id/to_input"
+        android:minWidth="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/position_input"
+        app:layout_constraintTop_toTopOf="@id/to_label"
+        app:layout_constraintBottom_toBottomOf="@id/to_label"
+        android:inputType="text"/>
+    
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>

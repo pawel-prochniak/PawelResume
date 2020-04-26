@@ -9,9 +9,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.pawelresume.experience.data.ExperienceDao
 import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.utils.DATABASE_NAME
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.sql.Date
 import java.util.*
+import kotlin.coroutines.coroutineContext
 
 @Database(entities = [ExperienceEntry::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
@@ -34,9 +37,12 @@ abstract class AppDatabase : RoomDatabase() {
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        // insert the data on the IO Thread
-                        ioThread {
-                            getInstance(context).experienceDao().insertExperienceEntries(PREPOPULATE_DATA)
+                            getInstance(context).experienceDao().apply {
+                                PREPOPULATE_DATA.forEach {
+                                    GlobalScope.launch {
+                                    insertExperienceEntry(it)
+                                }
+                            }
                         }
                     }
                 })

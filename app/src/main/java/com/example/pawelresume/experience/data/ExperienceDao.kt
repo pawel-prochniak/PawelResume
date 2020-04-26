@@ -11,8 +11,6 @@ interface ExperienceDao {
     fun getExperience(): LiveData<List<ExperienceEntry>>
 
     @Insert
-    fun insertExperienceEntry(entry: ExperienceEntry): Long
+    suspend fun insertExperienceEntry(entry: ExperienceEntry): Long
 
-    @Insert
-    fun insertExperienceEntries(data: List<ExperienceEntry>)
 }

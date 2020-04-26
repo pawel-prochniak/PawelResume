@@ -6,4 +6,11 @@
     <string name="feedback_tab">Feedback</string>
     <string name="from_prefix">From:</string>
     <string name="to_prefix">To:</string>
+    <string name="dialog_experience_position">Position:</string>
+    <string name="dialog_experience_company">Company:</string>
+    <string name="dialog_experience_from">From:</string>
+    <string name="dialog_experience_to">To:</string>
+    <string name="add_experience">Add new experience</string>
+    <string name="experience_dialog_positive_button">Create</string>
+    <string name="experience_dialog_negative_button">Cancel</string>
 </resources>

@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    kapt "android.arch.persistence.room:compiler:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
@@ -52,10 +52,13 @@ dependencies {
     implementation "org.koin:koin-core:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
     implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
 
     testImplementation "junit:junit:$jUnitVersion"
     testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "android.arch.core:core-testing:$testArchCoreTestingVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
     androidTestImplementation "androidx.test.ext:junit:$testRunnerVersion"
     androidTestImplementation "androidx.test.ext:truth:$testRunnerVersion"
     androidTestImplementation "androidx.test:rules:$testRulesVersion"

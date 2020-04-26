@@ -10,7 +10,7 @@ object InjectorUtils {
 
     val myModule = module {
         single { AppDatabase.getInstance(get()).experienceDao() }
-        single { ExperienceRepository.getInstance(get()) }
+        single { ExperienceRepository(get()) }
         viewModel { ExperienceListViewModel(get()) }
     }
 

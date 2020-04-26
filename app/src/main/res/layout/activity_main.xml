@@ -101,7 +101,8 @@
             android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation_graph"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
@@ -112,5 +113,6 @@
             app:itemIconTint="@color/navigation_item_color"
             app:itemTextColor="@color/navigation_item_color"
             app:menu="@menu/navigation_menu" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
