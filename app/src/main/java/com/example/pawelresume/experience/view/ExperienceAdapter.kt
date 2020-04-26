@@ -1,7 +1,6 @@
-package com.example.pawelresume.experience
+package com.example.pawelresume.experience.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -23,7 +22,8 @@ class ExperienceAdapter : ListAdapter<ExperienceEntry, ExperienceAdapter.ViewHol
                 LayoutInflater.from(parent.context),
                 R.layout.list_item_experience,
                 parent,
-                false)
+                false
+            )
         )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,7 +37,7 @@ class ExperienceAdapter : ListAdapter<ExperienceEntry, ExperienceAdapter.ViewHol
 
         fun bind(item: ExperienceEntry) {
             with (binding) {
-                company.text = item.company
+                company.text = "@${item.company}"
                 position.text = item.position
                 fromDate.text = dateFormat.format(item.from)
                 toDate.text = dateFormat.format(item.to)

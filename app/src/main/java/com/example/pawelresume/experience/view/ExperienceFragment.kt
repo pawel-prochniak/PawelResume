@@ -1,14 +1,12 @@
-package com.example.pawelresume.experience
+package com.example.pawelresume.experience.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pawelresume.R
 import com.example.pawelresume.databinding.FragmentExperienceBinding
 import com.example.pawelresume.experience.data.ExperienceEntry
 import com.example.pawelresume.experience.viewmodel.ExperienceListViewModel

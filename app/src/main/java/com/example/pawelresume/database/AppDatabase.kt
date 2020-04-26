@@ -53,13 +53,31 @@ abstract class AppDatabase : RoomDatabase() {
                 "Android Team Leader",
                 "Ailleron",
                 from = Calendar.getInstance().apply { set(2019, 1, 1) }.time
-            ).also { Timber.d("Adding calendar with from: ${it.from}") },
+            ),
             ExperienceEntry(
                 "Android Developer",
                 "Ailleron",
                 from = Calendar.getInstance().apply { set(2018, 2, 1) }.time,
                 to = Calendar.getInstance().apply { set(2019, 1, 1) }.time
-            ).also { Timber.d("Adding calendar with from: ${it.from}, and to: ${it.to}") }
+            ),
+            ExperienceEntry(
+                "Android Developer",
+                "SoInteractive",
+                from = Calendar.getInstance().apply { set(2016, 9, 1) }.time,
+                to = Calendar.getInstance().apply { set(2018, 1, 31) }.time
+            ),
+            ExperienceEntry(
+                "Junior Android Developer",
+                "SoInteractive",
+                from = Calendar.getInstance().apply { set(2015, 9, 1) }.time,
+                to = Calendar.getInstance().apply { set(2016, 9, 30) }.time
+            ),
+            ExperienceEntry(
+                "Android Developer Intern",
+                "SoInteractive",
+                from = Calendar.getInstance().apply { set(2015, 7, 1) }.time,
+                to = Calendar.getInstance().apply { set(2015, 8, 30) }.time
+            )
         )
 
     }

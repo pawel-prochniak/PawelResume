@@ -1,22 +1,15 @@
-package com.example.pawelresume.experience
+package com.example.pawelresume.experience.view
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import com.example.pawelresume.R
 import com.example.pawelresume.experience.data.ExperienceInput
-import kotlinx.android.synthetic.main.dialog_experience_new.*
 import kotlinx.android.synthetic.main.dialog_experience_new.view.*
-import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
